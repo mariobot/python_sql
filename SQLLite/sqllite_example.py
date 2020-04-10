@@ -144,3 +144,59 @@ result = execute_read_query(connection,select_users)
 
 for u in result:
     print(u)
+
+select_posts = "SELECT * FROM posts"
+result_posts = execute_read_query(connection, select_posts)
+
+for p in result_posts:
+    print(p)
+
+# executing a JOIN QUERY
+select_users_post = """
+SELECT 
+    users.id,
+    users.name,
+    posts.description
+FROM
+    posts
+    INNER JOIN users on users.id = posts.user_id
+"""
+
+result_up = execute_read_query(connection, select_users_post)
+
+for up in result_up:
+    print(up)
+
+# executing a MULTIPLE JOIN QUERY
+select_post_comments_users = """
+SELECT 
+    posts.description as post,
+    text as comment,
+    name
+FROM
+    posts
+    INNER JOIN users on users.id = comments.user_id
+    INNER JOIN comments on posts.id = comments.post_id
+"""
+posts_comments_user = execute_read_query(connection, select_post_comments_users)
+
+for pcu in posts_comments_user:
+    print(pcu)
+
+select_post_likes = """
+SELECT
+  description as Post,
+  COUNT(likes.id) as Likes
+FROM
+  likes,
+  posts
+WHERE
+  posts.id = likes.post_id
+GROUP BY
+  likes.post_id
+"""
+
+post_likes = execute_read_query(connection,select_post_likes)
+
+for pl in post_likes:
+    print(pl)
