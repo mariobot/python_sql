@@ -32,6 +32,16 @@ def execute_query(connection, query):
 create_database = "CREATE DATABASE sm_app"
 execute_query(connection, create_database)
 
+create_users_table = """
+CREATE TABLE IF NOT EXISTS users (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL, 
+  age INTEGER,
+  gender TEXT,
+  nationality TEXT
+)
+"""
+
 
 
     
