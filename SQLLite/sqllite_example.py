@@ -200,3 +200,26 @@ post_likes = execute_read_query(connection,select_post_likes)
 
 for pl in post_likes:
     print(pl)
+
+# updating records
+
+select_post_description = "SELECT description FROM posts where id = 2"
+post_description = execute_read_query(connection,select_post_description)
+print(post_description)
+
+update_sentence = """
+UPDATE
+  posts
+SET
+  description = "The weather has become so could in this quarantine"
+WHERE
+  id = 2
+"""
+# Execute the update command
+execute_query(connection, update_sentence)
+
+post_description = execute_read_query(connection,select_post_description)
+print(post_description)
+
+delete_sentence = "DELETE FROM comments where id = 5"
+#execute_query(connection,delete_sentence)

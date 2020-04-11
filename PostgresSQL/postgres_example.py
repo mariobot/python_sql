@@ -43,5 +43,9 @@ CREATE TABLE IF NOT EXISTS users (
 """
 
 
+# You can replicate the same logic at sqllite_example 
+# Only need to have present the correct sintax for PostgresSQL
+
+
 
     

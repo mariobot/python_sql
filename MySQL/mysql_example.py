@@ -86,6 +86,9 @@ CREATE TABLE IF NOT EXISTS likes (
 """
 execute_query(connection, create_likes_table)
 
+# You can replicate the same logic at sqllite_example 
+# Only need to have present the correct sintax for MySQL
+
 
 
 
