@@ -209,3 +209,5 @@ post_likes = execute_read_query(conn,select_post_likes)
 
 for pl in post_likes:
     print(pl)
+
+# you can apply UPDATE and DELETE sentences
