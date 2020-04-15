@@ -30,3 +30,6 @@ query = session.query(Message)
 instance = query.first()
 print(instance.message)
 
+
+# The session object is similar that context at .Net architecture
+
